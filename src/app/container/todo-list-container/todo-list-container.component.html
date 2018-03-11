@@ -1,2 +1,4 @@
-<!-- TODO: Render TodoList component <app-todo-list> and
-     connect all necessary input and output -->
+<app-todo-list
+  [todoItems]="todoItems"
+  (outMarkAsDone)="markAsDone($event)">
+</app-todo-list>
