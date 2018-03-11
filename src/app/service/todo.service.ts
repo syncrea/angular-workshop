@@ -9,29 +9,29 @@ export class TodoService {
   loadTodos(): Observable<TodoItem[]> {
     // TODO: Create the necessary call to the backend
     // Examples: https://angular.io/tutorial/toh-pt6
-    // URL: GET http://localhost/api/todos
+    // URL: GET /api/todos
     return of([]);
   }
 
-  loadTodo(nr: string): Observable<TodoItem> {
+  loadTodo(id: number): Observable<TodoItem> {
     // TODO: Create the necessary call to the backend
     // Examples: https://angular.io/tutorial/toh-pt6
-    // URL: GET http://localhost/api/todos/:nr
+    // URL: GET /api/todos/:id
     return of(<TodoItem>{});
   }
 
   createTodo(data: any): Observable<TodoItem> {
     // TODO: Create the necessary call to the backend
     // Examples: https://angular.io/tutorial/toh-pt6
-    // URL: POST http://localhost/api/todos
+    // URL: POST /api/todos
     // Data: {title: string; description: string; done: boolean}
     return of(<TodoItem>{});
   }
 
-  updateTodo(nr: string, data: any): Observable<TodoItem> {
+  updateTodo(id: number, data: any): Observable<TodoItem> {
     // TODO: Create the necessary call to the backend
     // Examples: https://angular.io/tutorial/toh-pt6
-    // URL: POST http://localhost/api/todos/:nr
+    // URL: POST /api/todos/:id
     // Data: {title: string; description: string; done: boolean}
     return of(<TodoItem>{});
   }

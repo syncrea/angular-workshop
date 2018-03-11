@@ -19,7 +19,8 @@ export class TodoListContainerComponent {
   }
 
   markAsDone(todoItem: TodoItem) {
-    this.todoItems = this.todoService.updateTodo(todoItem.nr, {
+    this.todoItems = this.todoService.updateTodo(todoItem.id, {
+      ...todoItem,
       done: !todoItem.done
     }).pipe(
       switchMap(() => this.todoService.loadTodos())
@@ -27,6 +28,6 @@ export class TodoListContainerComponent {
   }
 
   showDetails(todoItem: TodoItem) {
-    this.router.navigate(['/todos', todoItem.nr]);
+    this.router.navigate(['/todos', todoItem.id]);
   }
 }
