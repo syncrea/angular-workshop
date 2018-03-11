@@ -9,6 +9,7 @@ import {TodoListContainerComponent} from './container/todo-list-container/todo-l
 import {TodoDetailsContainerComponent} from './container/todo-details-container/todo-details-container.component';
 import {TodoService} from './service/todo.service';
 import {RouterModule} from '@angular/router';
+import {CreateTodoContainerComponent} from './container/create-todo-container/create-todo-container.component';
 
 @NgModule({
   declarations: [
@@ -17,20 +18,21 @@ import {RouterModule} from '@angular/router';
     TodoListComponent,
     TodoDetailsComponent,
     TodoListContainerComponent,
-    TodoDetailsContainerComponent
+    TodoDetailsContainerComponent,
+    CreateTodoContainerComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot([{
       path: 'todos',
       component: TodoListContainerComponent
-    }
-      // TODO: Add new route to todo details view
-      // Add a new route config here to route to the details view component
-      // Use a route parameter in the path to reflect the todo nr state
-      // path: 'todos/:nr'
-      // The new route should be associated to the TodoDetailsContainerComponent
-    , {
+    }, {
+      path: 'todos/:nr',
+      component: TodoDetailsContainerComponent
+    }, {
+      path: 'create-todo',
+      component: CreateTodoContainerComponent
+    }, {
       path: '',
       pathMatch: 'full',
       redirectTo: '/todos'

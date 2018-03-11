@@ -3,11 +3,12 @@
     <h1 [routerLink]="['/todos']"
         tabindex="0"
         class="title">Todo List</h1>
+    <button [routerLink]="['/create-todo']"
+            class="create">Create</button>
   </div>
 </header>
 <main class="main">
   <div class="main-container">
-    <!-- TODO: Remove direct reference to container and add <router-outlet> here -->
-    <app-todo-list-container></app-todo-list-container>
+    <router-outlet></router-outlet>
   </div>
 </main>

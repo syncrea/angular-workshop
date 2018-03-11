@@ -24,11 +24,6 @@ export class TodoListContainerComponent {
   }
 
   showDetails(todoItem: TodoItem) {
-    // TODO: Use the router instance to navigate to the details view
-    // Since the router is injected you can use the navigate method on the
-    // router object to trigger a navigation to the details view.
-    // See https://angular.io/api/router/Router#navigate for more details
-    // Use todoItem.nr to obtain the nr param which needs to be passed into
-    // the navigated URL
+    this.router.navigate(['/todos', todoItem.nr]);
   }
 }
