@@ -1,5 +1,6 @@
 <app-todo-item
-  *ngFor="let todoItem of todoItems"
+  *ngFor="let todoItem of todoItems; trackBy: trackByNr"
   [todoItem]="todoItem"
-  (outMarkAsDone)="markAsDone(todoItem)">
+  (outMarkAsDone)="markAsDone(todoItem)"
+  (outShowDetails)="showDetails(todoItem)">
 </app-todo-item>

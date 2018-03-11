@@ -9,8 +9,14 @@ import {TodoItem} from '../../model/todo';
 export class TodoItemComponent {
   @Input() todoItem: TodoItem;
   @Output() outMarkAsDone = new EventEmitter<TodoItem>();
+  @Output() outShowDetails = new EventEmitter<TodoItem>();
 
   markAsDone() {
     this.outMarkAsDone.emit(this.todoItem);
+  }
+
+  @HostListener('click')
+  showDetails() {
+    this.outShowDetails.emit(this.todoItem);
   }
 }
