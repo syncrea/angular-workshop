@@ -1,6 +1,6 @@
-<h2 class="sub-title">Details of Todo No.{{todoItem.nr}}</h2>
+<h2 class="sub-title">Details of Todo No.{{(todoItem | async)?.nr}}</h2>
 <app-todo-details
-  [todoItem]="todoItem"
+  [todoItem]="todoItem | async"
   applyButtonText="Update Todo"
-  (onApplyChanges)="updateTodo($event)">
+  (outApplyChanges)="updateTodo($event)">
 </app-todo-details>

@@ -10,6 +10,9 @@ import {TodoDetailsContainerComponent} from './container/todo-details-container/
 import {TodoService} from './service/todo.service';
 import {RouterModule} from '@angular/router';
 import {CreateTodoContainerComponent} from './container/create-todo-container/create-todo-container.component';
+import {HttpClientModule} from '@angular/common/http';
+import {HttpClientInMemoryWebApiModule} from 'angular-in-memory-web-api';
+import {TodoDb} from './todo.db';
 
 @NgModule({
   declarations: [
@@ -23,6 +26,8 @@ import {CreateTodoContainerComponent} from './container/create-todo-container/cr
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
+    HttpClientInMemoryWebApiModule.forRoot(TodoDb),
     RouterModule.forRoot([{
       path: 'todos',
       component: TodoListContainerComponent

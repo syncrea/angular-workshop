@@ -9,10 +9,10 @@ import {TodoItem} from '../../model/todo';
 export class TodoDetailsComponent {
   @Input() todoItem: TodoItem;
   @Input() applyButtonText: string;
-  @Output() onApplyChanges = new EventEmitter<any>();
+  @Output() outApplyChanges = new EventEmitter<any>();
 
   applyChanges(title: string, description: string) {
-    this.onApplyChanges.emit({
+    this.outApplyChanges.emit({
       title,
       description
     });

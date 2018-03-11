@@ -1,5 +1,5 @@
 <app-todo-list
-  [todoItems]="todoItems"
+  [todoItems]="todoItems | async"
   (outMarkAsDone)="markAsDone($event)"
   (outShowDetails)="showDetails($event)">
 </app-todo-list>
