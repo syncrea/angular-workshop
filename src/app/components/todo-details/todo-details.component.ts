@@ -1,7 +1,6 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {TodoItem} from '../../model/todo';
 
-// TODO: Add change detection strategy OnPush
 @Component({
   selector: 'app-todo-details',
   templateUrl: './todo-details.component.html',
@@ -10,10 +9,10 @@ import {TodoItem} from '../../model/todo';
 export class TodoDetailsComponent {
   @Input() todoItem: TodoItem;
   @Input() applyButtonText: string;
-  @Output() outApplyChanges = new EventEmitter<any>();
+  @Output() onApplyChanges = new EventEmitter<any>();
 
   applyChanges(title: string, description: string) {
-    this.outApplyChanges.emit({
+    this.onApplyChanges.emit({
       title,
       description
     });
