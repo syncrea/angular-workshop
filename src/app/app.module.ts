@@ -32,7 +32,7 @@ import {TodoDb} from './todo.db';
       path: 'todos',
       component: TodoListContainerComponent
     }, {
-      path: 'todos/:nr',
+      path: 'todos/:id',
       component: TodoDetailsContainerComponent
     }, {
       path: 'create-todo',

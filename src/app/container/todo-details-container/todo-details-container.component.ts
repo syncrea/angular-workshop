@@ -18,7 +18,7 @@ export class TodoDetailsContainerComponent {
               @Inject(ActivatedRoute) private route: ActivatedRoute) {
     this.todoItem = route.params
       .pipe(
-        switchMap((params) => todoService.loadTodo(params.nr))
+        switchMap((params) => todoService.loadTodo(params.id))
       );
   }
 
@@ -26,7 +26,7 @@ export class TodoDetailsContainerComponent {
     this.route.params
       .pipe(
         take(1),
-        switchMap((params) => this.todoService.updateTodo(params.nr, data))
+        switchMap((params) => this.todoService.updateTodo(params.id, data))
       )
       .subscribe(() => this.router.navigate(['/todos']));
   }
