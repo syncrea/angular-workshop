@@ -68,11 +68,19 @@ describe('TodoListContainer', () => {
     expect(todoItems.length).toBe(2);
   });
 
-  it('should update done state when item checkbox is clicked', () => {
+  it('should update done state in service when item checkbox is clicked', () => {
     const todoItems = fixture.debugElement.queryAll(By.directive(TodoItemComponent));
     const secondTodoCheckbox = todoItems[1].query(By.css('.checkbox'));
     secondTodoCheckbox.triggerEventHandler('click', null);
-
     expect(todoServiceMock.todos[1].done).toBe(true);
+  });
+
+  it('should update done class on checkbox when item checkbox is clicked', () => {
+    const todoItems = fixture.debugElement.queryAll(By.directive(TodoItemComponent));
+    const secondTodoCheckbox = todoItems[1].query(By.css('.checkbox'));
+    secondTodoCheckbox.triggerEventHandler('click', null);
+    fixture.detectChanges();
+
+    expect(secondTodoCheckbox.classes['checkbox-done']).toBe(true);
   });
 });
