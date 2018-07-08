@@ -27,7 +27,7 @@ import {CreateTodoContainerComponent} from './container/create-todo-container/cr
       path: 'todos',
       component: TodoListContainerComponent
     }, {
-      path: 'todos/:nr',
+      path: 'todos/:no',
       component: TodoDetailsContainerComponent
     }, {
       path: 'create-todo',

@@ -1,6 +1,7 @@
+<p class="intro">You have {{todoItems.length}} tasks.</p>
 <app-todo-item
-  *ngFor="let todoItem of todoItems"
+  *ngFor="let todoItem of todoItems; trackBy: trackByNo"
   [todoItem]="todoItem"
-  (outMarkAsDone)="markAsDone(todoItem)"
+  (outToggleDone)="toggleDone(todoItem)"
   (outShowDetails)="showDetails(todoItem)">
 </app-todo-item>
