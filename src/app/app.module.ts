@@ -27,8 +27,8 @@ import {RouterModule} from '@angular/router';
     }
       // TODO: Add new route to todo details view
       // Add a new route config here to route to the details view component
-      // Use a route parameter in the path to reflect the todo nr state
-      // path: 'todos/:nr'
+      // Use a route parameter in the path to reflect the todo no state
+      // path: 'todos/:no'
       // The new route should be associated to the TodoDetailsContainerComponent
     , {
       path: '',
