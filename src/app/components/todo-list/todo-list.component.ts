@@ -13,7 +13,7 @@ export class TodoListComponent {
   // You can then bind the todos from the TodoListContainer component
   // onto this input.
   todoItems: TodoItem[];
-  @Output() outMarkAsDone = new EventEmitter<TodoItem>();
+  @Output() outToggleDone = new EventEmitter<TodoItem>();
 
   // TODO: No dependencies in simple UI components
   // Since we're no longer manipulating data within our TodoList UI
@@ -22,12 +22,12 @@ export class TodoListComponent {
     this.todoItems = todoService.getTodos();
   }
 
-  markAsDone(todoItem: TodoItem) {
-    // TODO: Use outMarkAsDone output instead
+  toggleDone(todoItem: TodoItem) {
+    // TODO: Use outToggleDone output instead
     // Our TodoList should be a simple UI component .We'd like to
-    // use the output outMarkAsDone to emit an event instead of
+    // use the output outToggleDone to emit an event instead of
     // doing data manipulation directly.
-    this.todoService.updateTodo(todoItem.nr, {
+    this.todoService.updateTodo(todoItem.no, {
       done: !todoItem.done
     });
     this.todoItems = this.todoService.getTodos();
