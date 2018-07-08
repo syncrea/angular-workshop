@@ -14,8 +14,8 @@ export class TodoListContainerComponent {
     this.todoItems = todoService.getTodos();
   }
 
-  markAsDone(todoItem: TodoItem) {
-    this.todoService.updateTodo(todoItem.nr, {
+  toggleDone(todoItem: TodoItem) {
+    this.todoService.updateTodo(todoItem.no, {
       done: !todoItem.done
     });
     this.todoItems = this.todoService.getTodos();

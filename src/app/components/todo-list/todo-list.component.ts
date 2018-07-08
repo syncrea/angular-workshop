@@ -8,9 +8,9 @@ import {TodoItem} from '../../model/todo';
 })
 export class TodoListComponent {
   @Input() todoItems: TodoItem[];
-  @Output() outMarkAsDone = new EventEmitter<TodoItem>();
+  @Output() outToggleDone = new EventEmitter<TodoItem>();
 
-  markAsDone(todoItem: TodoItem) {
-    this.outMarkAsDone.emit(todoItem);
+  toggleDone(todoItem: TodoItem) {
+    this.outToggleDone.emit(todoItem);
   }
 }
