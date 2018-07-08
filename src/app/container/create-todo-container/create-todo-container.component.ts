@@ -1,4 +1,4 @@
-import {Component, Inject} from '@angular/core';
+import {Component} from '@angular/core';
 import {Router} from '@angular/router';
 import {TodoService} from '../../service/todo.service';
 
@@ -8,8 +8,8 @@ import {TodoService} from '../../service/todo.service';
   styleUrls: ['./create-todo-container.component.css']
 })
 export class CreateTodoContainerComponent {
-  constructor(@Inject(TodoService) private todoService: TodoService,
-              @Inject(Router) private router: Router) {}
+  constructor(private todoService: TodoService,
+              private router: Router) {}
 
   createTodo(todoData: any) {
     this.todoService.createTodo(todoData);
