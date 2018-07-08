@@ -9,12 +9,12 @@ import {TodoListComponent} from '../../components/todo-list/todo-list.component'
 
 class TodoServiceMock extends TodoService {
   todos: TodoItem[] = [{
-    nr: '1',
+    no: '1',
     title: 'Todo 1',
     description: 'Todo 1 Description',
     done: true
   }, {
-    nr: '2',
+    no: '2',
     title: 'Todo 2',
     description: 'Todo 2 Description',
     done: false
@@ -24,8 +24,8 @@ class TodoServiceMock extends TodoService {
     return this.todos;
   }
 
-  updateTodo(nr: string, data: any): void {
-    const index = this.todos.findIndex((todo) => todo.nr === nr);
+  updateTodo(no: string, data: any): void {
+    const index = this.todos.findIndex((todo) => todo.no === no);
     if (index !== -1) {
       Object.assign(this.todos[index], data);
     }

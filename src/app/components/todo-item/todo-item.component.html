@@ -1,6 +1,6 @@
 <div [class.checkbox-done]="todoItem.done"
-     (click)="markAsDone(); $event.stopPropagation()"
-     (keydown.enter)="markAsDone()"
+     (click)="toggleDone(); $event.stopPropagation()"
+     (keydown.enter)="toggleDone()"
      class="checkbox"
      tabindex="0"></div>
 <div [class.title-done]="todoItem.done"
