@@ -1,6 +1,6 @@
 <div [class.checkbox-done]="todoItem.done"
-     (click)="markAsDone()"
-     (keydown.enter)="markAsDone()"
+     (click)="toggleDone()"
+     (keydown.enter)="toggleDone()"
      class="checkbox"
      tabindex="0"></div>
 <div [class.title-done]="todoItem.done"
