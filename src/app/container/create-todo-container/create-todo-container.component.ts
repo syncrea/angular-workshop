@@ -1,18 +1,19 @@
-import {Component, Inject} from '@angular/core';
+import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {Router} from '@angular/router';
 import {TodoService} from '../../service/todo.service';
 
 @Component({
   selector: 'app-create-todo-container',
   templateUrl: './create-todo-container.component.html',
-  styleUrls: ['./create-todo-container.component.css']
+  styleUrls: ['./create-todo-container.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CreateTodoContainerComponent {
-  constructor(@Inject(TodoService) private todoService: TodoService,
-              @Inject(Router) private router: Router) {}
+  constructor(private todoService: TodoService,
+              private router: Router) {}
 
-  createTodo(todoData: any) {
-    this.todoService.createTodo(todoData);
+  createTodo(title: string, description: string) {
+    this.todoService.createTodo(title, description);
     this.router.navigate(['/todos']);
   }
 }
