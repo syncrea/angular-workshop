@@ -1,18 +1,19 @@
-import {Component, EventEmitter, HostListener, Input, Output} from '@angular/core';
+import {ChangeDetectionStrategy, Component, EventEmitter, HostListener, Input, Output} from '@angular/core';
 import {TodoItem} from '../../model/todo';
 
 @Component({
   selector: 'app-todo-item',
   templateUrl: './todo-item.component.html',
-  styleUrls: ['./todo-item.component.css']
+  styleUrls: ['./todo-item.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TodoItemComponent {
   @Input() todoItem: TodoItem;
-  @Output() outMarkAsDone = new EventEmitter<TodoItem>();
+  @Output() outToggleDone = new EventEmitter<TodoItem>();
   @Output() outShowDetails = new EventEmitter<TodoItem>();
 
-  markAsDone() {
-    this.outMarkAsDone.emit(this.todoItem);
+  toggleDone() {
+    this.outToggleDone.emit(this.todoItem);
   }
 
   @HostListener('click')

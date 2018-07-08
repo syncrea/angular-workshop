@@ -27,7 +27,9 @@ import {TodoDb} from './todo.db';
   imports: [
     BrowserModule,
     HttpClientModule,
-    HttpClientInMemoryWebApiModule.forRoot(TodoDb),
+    HttpClientInMemoryWebApiModule.forRoot(TodoDb, {
+      delay: 0
+    }),
     RouterModule.forRoot([{
       path: 'todos',
       component: TodoListContainerComponent
