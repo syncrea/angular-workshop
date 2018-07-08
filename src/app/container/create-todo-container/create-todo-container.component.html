@@ -1,5 +1,5 @@
 <h2 class="sub-title">Create new Todo</h2>
 <app-todo-details
   applyButtonText="Create Todo"
-  (outApplyChanges)="createTodo($event)">
+  (outApplyChanges)="createTodo($event.title, $event.description)">
 </app-todo-details>

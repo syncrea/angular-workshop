@@ -1,18 +1,19 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {ChangeDetectionStrategy, Component, EventEmitter, Input, Output} from '@angular/core';
 import {TodoItem} from '../../model/todo';
 
 @Component({
   selector: 'app-todo-list',
   templateUrl: './todo-list.component.html',
-  styleUrls: ['./todo-list.component.css']
+  styleUrls: ['./todo-list.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TodoListComponent {
   @Input() todoItems: TodoItem[];
-  @Output() outMarkAsDone = new EventEmitter<TodoItem>();
+  @Output() outToggleDone = new EventEmitter<TodoItem>();
   @Output() outShowDetails = new EventEmitter<TodoItem>();
 
-  markAsDone(todoItem: TodoItem) {
-    this.outMarkAsDone.emit(todoItem);
+  toggleDone(todoItem: TodoItem) {
+    this.outToggleDone.emit(todoItem);
   }
 
   showDetails(todoItem: TodoItem) {

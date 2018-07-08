@@ -20,7 +20,7 @@ export class TodoService {
     return of(<TodoItem>{});
   }
 
-  createTodo(data: any): Observable<TodoItem> {
+  createTodo(title: string, description: string): Observable<TodoItem> {
     // TODO: Create the necessary call to the backend
     // Examples: https://angular.io/tutorial/toh-pt6
     // URL: POST /api/todos
