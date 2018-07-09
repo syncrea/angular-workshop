@@ -4,7 +4,7 @@ import {Router} from '@angular/router';
 import {TodoService} from '../../service/todo.service';
 import {Observable} from 'rxjs';
 import {switchMap} from 'rxjs/operators';
-import {store} from '../../state/state';
+import {store, ToggleDoneAction} from '../../state/state';
 
 @Component({
   selector: 'app-todo-list-container',
@@ -21,15 +21,14 @@ export class TodoListContainerComponent {
   }
 
   toggleDone(todoItem: TodoItem) {
-    this.todoItems = this.todoService.updateTodo(todoItem.id, {
-      ...todoItem,
-      done: !todoItem.done
-    }).pipe(
-      switchMap(() => this.todoService.loadTodos())
-    );
+    store.dispatch(new ToggleDoneAction(todoItem.id));
   }
 
   showDetails(todoItem: TodoItem) {
     this.router.navigate(['/todos', todoItem.id]);
+  }
+
+  replayHistory() {
+    store.replayHistory(1000);
   }
 }

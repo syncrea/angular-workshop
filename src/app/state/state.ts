@@ -24,8 +24,30 @@ export const initialAppState: AppState = {
   }]
 };
 
-export const appReducer: Reducer<AppState, Action> = (state: AppState, action: Action) => {
-  return state;
+export class ToggleDoneAction implements Action {
+  readonly type = 'ToggleDoneAction';
+
+  constructor(public readonly todoId: number) {}
+}
+
+export class DeleteTodoAction implements Action {
+  readonly type = 'DeleteTodoAction';
+
+  constructor(public readonly todoId: number) {}
+}
+
+export type TodoActions = ToggleDoneAction | DeleteTodoAction;
+
+export const appReducer: Reducer<AppState, TodoActions> = (state: AppState, action: TodoActions) => {
+  switch (action.type) {
+    case 'ToggleDoneAction':
+      return {
+        ...state,
+        todos: state.todos.map(todo => todo.id === action.todoId ? {...todo, done: !todo.done} : {...todo})
+      };
+
+    default: return state;
+  }
 };
 
 export const store = createStore(appReducer, initialAppState);
